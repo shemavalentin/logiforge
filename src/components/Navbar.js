@@ -1,19 +1,33 @@
 import React from "react";
-
-import { Nav, NavLogo, NavLinks, StyledLink } from "../styles/navbar.styles";
+import { Link } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
 
 const Navbar = () => {
-  return (
-    <Nav>
-      <NavLogo>LogiForge</NavLogo>
+  const { toggleTheme } = useTheme();
 
-      <NavLinks>
-        <StyledLink to="/">Home</StyledLink>
-        <StyledLink to="/about">About</StyledLink>
-        <StyledLink to="/projects">Projects</StyledLink>
-        <StyledLink to="/contact">Contact</StyledLink>
-      </NavLinks>
-    </Nav>
+  return (
+    <nav
+      style={{
+        padding: "1rem 2rem",
+        display: "flex",
+        justifyContent: "space-between",
+      }}
+    >
+      <div>
+        <strong>LogiForge</strong>
+      </div>
+      <div>
+        <Link to="/">Home</Link>
+        {" | "}
+        <Link to="/about">About</Link>
+        {" | "}
+        <Link to="/projects">Projects</Link>
+        {" | "}
+        <Link to="/contact">Contact</Link>
+        {" | "}
+        <button onClick={toggleTheme}>🌓</button>
+      </div>
+    </nav>
   );
 };
 

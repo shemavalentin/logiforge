@@ -1,43 +1,21 @@
 import React from "react";
 
-import {
-  ContactWrapper,
-  ContactTitle,
-  ContactInfo,
-} from "../styles/contact.styles";
-
-const Contact = () => {
-  return (
-    <ContactWrapper>
-      <ContactTitle> Contact Me</ContactTitle>
-      <ContactInfo>
-        <p>
-          Email:
-          <a href="mailto:shemavalentin@gmail.com">shemavalentin@gmail.com</a>
-        </p>
-        <p>
-          GitHub:{" "}
-          <a
-            href="https://github.com/shemavalentin"
-            target="_blank"
-            rel="noreferrer"
-          >
-            github.com/shemavalentin
-          </a>
-        </p>
-        <p>
-          LinkedIn:{" "}
-          <a
-            href="https://www.linkedin.com/in/n-shema-valentin-678a3013a/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            linkedin.com/shemavalentin
-          </a>
-        </p>
-      </ContactInfo>
-    </ContactWrapper>
-  );
-};
+const Contact = () => (
+  <div style={{ padding: "4rem" }}>
+    <h1>Contact Me</h1>
+    <form action="https://formspree.io/f/mnnzpjgd" method="POST">
+      <input name="name" placeholder="Your Name" required />
+      <br />
+      <br />
+      <input name="email" type="email" placeholder="Your Email" required />
+      <br />
+      <br />
+      <textarea name="message" placeholder="Your Message" required />
+      <br />
+      <br />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+);
 
 export default Contact;

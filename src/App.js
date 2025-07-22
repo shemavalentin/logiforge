@@ -1,25 +1,46 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Projects from "./pages/Project";
-import Contact from "./pages/Contacts";
-import Navbar from "./components/Navbar";
-import SystemStyles from "./styles/globalStyle.styles";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { AnimatePresence } from "framer-motion";
+import GlobalStyle from "./styles/globalStyle.styles";
+import { lightTheme, darkTheme } from "./styles/theme";
+import { useTheme } from "./context/ThemeContext";
 
-function App() {
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import About from "./pages/Abouts";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contacts";
+
+function AnimatedRoutes() {
+  const location = useLocation();
   return (
-    // Defining Router
-    <Router>
-      <SystemStyles />
-      <Navbar />
-      {/* Pages to navigate to.(Routes) */}
-      <Routes>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-    </Router>
+    </AnimatePresence>
+  );
+}
+
+function App() {
+  const { isDarkMode } = useTheme();
+
+  return (
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+      <GlobalStyle />
+      <Router>
+        <Navbar />
+        <AnimatedRoutes />
+      </Router>
+    </ThemeProvider>
   );
 }
 

@@ -1,30 +1,23 @@
 import React from "react";
-import { HeroContainer, HeroText } from "../styles/Home.styles";
+import { motion } from "framer-motion";
 
-const Home = () => {
-  return (
-    <HeroContainer>
-      <HeroText
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <h1>
-          {" "}
-          Hello, I'm <span style={{ color: "#00d1b2" }}> SHEMA Valentin</span>
-        </h1>
-        <h2>
-          {" "}
-          a Senior Full Stack Developer | AI/ML Enthusiast | System Architect
-        </h2>
-        <p style={{ marginTop: "1rem" }}>
-          Dynamic and detail-oriented software engineer with a robust set
-          spanning full-stack development with cutting edge technologies and
-          AI/ML.
-        </p>
-      </HeroText>
-    </HeroContainer>
-  );
-};
+const Home = () => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.6 }}
+    style={{ padding: "4rem", textAlign: "center" }}
+  >
+    <h1>
+      Hi, I'm <span style={{ color: "#00d1b2" }}>SHEMA Valentin</span>
+    </h1>
+    <h2>Fullstack Developer | ML Enthusiast | System Architect</h2>
+    <p>
+      Dynamic and detail-oriented software engineer with a robust skill set
+      spanning full-stack development and machine learning.
+    </p>
+  </motion.div>
+);
 
 export default Home;

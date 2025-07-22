@@ -1,0 +1,15 @@
+export const skills = [
+  "HTML5 + CSS",
+  "Styled Components",
+  "JavaScript and Advanced Concepts",
+  "Data Structure and Algorithms",
+  "React",
+  "React Native for Android and IOS",
+  "Node.js + Express.js",
+  "REST APIs + GraphQl",
+  "Python + FAST API",
+  "MongoDB",
+  "Machine Learning",
+  "System Design",
+  "POSTGREsql",
+];
